@@ -8,11 +8,12 @@ With this approach, we can monitor the nodes, the clusters and the hole applicat
 
 To Compose our Tool, we use the ones presented below:
 
-Prometheus - www.prometheus.io
-Grafana - www.grafana.com
-Jaeger - www.jaegertracing.io
-Kiali - www.kiali.io
-Istio - www.istio.io
+Prometheus - www.prometheus.io  
+Grafana - www.grafana.com  
+Jaeger - www.jaegertracing.io  
+Kiali - www.kiali.io  
+Istio - www.istio.io    
+Kubernetes - www.kubernetes.io  
 
 
 
