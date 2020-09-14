@@ -1,5 +1,5 @@
-IMAGE_NAME = "bento/ubuntu-16.04"
-N = 2
+IMAGE_NAME = "bento/ubuntu-18.04"
+N = 1
 
 Vagrant.configure("2") do |config|
     config.ssh.insert_key = false
@@ -15,9 +15,6 @@ Vagrant.configure("2") do |config|
         master.vm.hostname = "k8s-master"
         master.vm.provision "ansible" do |ansible|
             ansible.playbook = "kubernetes-setup/master-playbook.yml"
-            ansible.extra_vars = {
-                node_ip: "192.168.50.10",
-            }
         end
     end
 
@@ -28,9 +25,6 @@ Vagrant.configure("2") do |config|
             node.vm.hostname = "node-#{i}"
             node.vm.provision "ansible" do |ansible|
                 ansible.playbook = "kubernetes-setup/node-playbook.yml"
-                ansible.extra_vars = {
-                    node_ip: "192.168.50.#{i + 10}",
-                }
             end
         end
     end
