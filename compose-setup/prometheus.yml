@@ -23,3 +23,20 @@ scrape_configs:
     # scheme defaults to 'http'.
     static_configs:
     - targets: ['localhost:9090']
+    
+  - job_name: 'cadvisor-machine'
+    scrape_interval: 5s
+    metrics_path: '/api/v1.0/machine'
+    static_configs:
+    - targets: ['172.17.0.1:8081']
+   
+  - job_name: 'cadvisor-containers'
+    scrape_interval: 5s
+    metrics_path: '/metrics'
+    static_configs:
+    - targets: ['172.17.0.1:8081']
+    
+  - job_name: 'robotshop'
+    metrics_path: '/api/cart/metrics'
+    static_configs:
+    - targets: ['172.17.0.1:8080']
