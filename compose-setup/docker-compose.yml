@@ -14,14 +14,21 @@ services:
     image: gcr.io/google-containers/cadvisor:latest
     container_name: cadvisor
     ports:
-      - 8081:8081
-    command:
-      - '-port=8081'
+      - 8080:8080
+    command: ["-docker_only", "-v=4", "--url_base_prefix=/cadvisor"]
+    healthcheck:
+      test: ["CMD-SHELL", "wget --quiet --tries=1 --spider http://localhost:8080/cadvisor/healthz || exit 1"]
+      interval: 30s
+      timeout: 3s
+      retries: 0
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
       - /:/rootfs:ro
-      - /var/run:/var/run:rw
+      - /var/run:/var/run
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+      - /sys/fs/cgroup:/cgroup:ro
     depends_on:
       - redis
     networks:
