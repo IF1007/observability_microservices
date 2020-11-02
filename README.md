@@ -22,12 +22,12 @@ Regardless the operation system that you are using, we will need:
 
 ## Deploying Our Observability Stack
 
-Clone this project 
-Enter compose-setup
-Do docker-compose up -d
+* Clone this project 
+* Enter compose-setup
+* Do docker-compose up -d
 
 ## Using the Capture and Analysis Module
 
-Clone this project
-Do jupyter-lab
-Override some especif informations like 'url' and 'emails' and run those cells
+* Clone this project
+* Do jupyter-lab
+* Override some especif informations like 'url' and 'emails' and run those cells
